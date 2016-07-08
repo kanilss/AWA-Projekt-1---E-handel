@@ -32,7 +32,7 @@ namespace Kontorsprylar
             }
         }
 
-        public string ID
+        public string PID
         {
             get
             {

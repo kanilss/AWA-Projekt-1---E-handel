@@ -3,12 +3,13 @@ using System.Web;
 using System.Web.Services;
 using System.Web.Services.Protocols;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace Kontorsprylar
 {
     public class Order
     {
-        public string ID
+        public string OID
         {
             get
             {
@@ -49,6 +50,7 @@ namespace Kontorsprylar
             get
             {
                 throw new System.NotImplementedException();
+                
             }
 
             set
