@@ -14,10 +14,10 @@
       <FileName>Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Kontorsprylar.Customer" Collapsed="true">
+  <Class Name="Kontorsprylar.Customer">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAAAACA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAIAgAACA=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -35,10 +35,10 @@
       <FileName>Master.Master.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Kontorsprylar.Order" Collapsed="true">
+  <Class Name="Kontorsprylar.Order">
     <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAAAEQ=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
   </Class>
