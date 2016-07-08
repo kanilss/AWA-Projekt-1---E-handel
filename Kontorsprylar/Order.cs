@@ -43,5 +43,17 @@ namespace Kontorsprylar
             {
             }
         }
+
+        public List<Product> Products
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }

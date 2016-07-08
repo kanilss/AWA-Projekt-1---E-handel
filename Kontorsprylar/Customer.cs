@@ -43,5 +43,17 @@ namespace Kontorsprylar
             {
             }
         }
+
+        public List<Order> OrderHistory
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
     }
 }
