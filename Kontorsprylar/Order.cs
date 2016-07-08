@@ -20,18 +20,6 @@ namespace Kontorsprylar
             }
         }
 
-        public List<Product> ProductList
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
         public int TotalPrice
         {
             get

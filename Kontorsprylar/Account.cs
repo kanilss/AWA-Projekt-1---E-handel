@@ -32,9 +32,6 @@ namespace Kontorsprylar
             }
         }
 
-        /// <summary>
-        /// Per
-        /// </summary>
         public string Password
         {
             get
