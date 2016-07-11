@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLHandler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,7 @@ namespace Kontorsprylar
 
                 if (this.IsValid)
                 {
-                    SQLHandler.SQL.AddNewCustomer(TextBoxName.Text, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxAddress.Text, TextBoxPhone.Text, TextBoxOrgNr.Text);
+                    SQL.AddNewCustomer(TextBoxName.Text, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxAddress.Text, TextBoxPhone.Text, TextBoxOrgNr.Text);
                 }
             }
         }

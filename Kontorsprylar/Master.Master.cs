@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLHandler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,22 +14,37 @@ namespace Kontorsprylar
         {
             if (IsPostBack)
             {
-                //TODO: Jämföra användarnamn och lösenord med SQL-databas. Spara i Session["userid"]
-                
+                RFVLoginEmail.Validate();
+                RFVLoginPassword.Validate();
 
+                if (RFVLoginEmail.IsValid && RFVLoginPassword.IsValid)
+                {
+                    TrySignInUser(TextBoxLoginEmail.Text, TextBoxLoginPassword.Text);
+                }
             }
 
             //Om ingen är inloggad. Visa upp "logga in" som leder till inloggningsmodal. 
-            if (Session["userid"] == null)
+            if (Session["userName"] == null)
             {
                 LiteralLogIn.Text = "<li><a data-toggle=\"modal\" href=\"#modalSignIn\"><span class=\"glyphicon glyphicon-user\"></span> Logga in</a></li>";
             }
-
-            if (Session["userid"] != null)
+            else if (Session["userName"] != null)
             {
+                LiteralLogIn.Text = $"<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> {Session["userName"]}</a></li>";
+
                 //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
             }
+        }
 
+        private void TrySignInUser(string email, string password)
+        {
+            Customer signedInCustomer = SQL.GetCustomer(email, password);
+            //Av någon anledning returneras inte kunden
+
+            if (signedInCustomer != null)
+            {
+                Session["userid"] = signedInCustomer.Name;
+            }
         }
     }
 }

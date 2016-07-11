@@ -253,5 +253,46 @@ namespace SQLHandler
 
             return admins;
         }
+
+        static public Customer GetCustomer(string email, string password)
+        {
+            Customer tmpCustomer = null;
+
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            string strCmd = $"select * from Customers where Email='{email}' and Password='{password}'";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+
+            try
+            {
+                myConnection.Open();
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string name = myReader["Name"].ToString();
+                    string address = myReader["Address"].ToString();
+                    string phone = myReader["Phone"].ToString();
+                    string orgNr = myReader["OrgNr"].ToString();
+                    int id = Convert.ToInt32(myReader["CID"]);
+                    tmpCustomer = new Customer(name, email, password, id, address, phone, orgNr);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Response.Write($"<script>alert('{ex.Message}');</script>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return tmpCustomer;
+        }
+
     }
 }
