@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLHandler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            List<Product> products = SQL.LoadProducts();
         }
     }
 }

@@ -11,7 +11,10 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-             
+            //Är hen inloggad?
+            if(Session["userid"] == null)
+                LiteralLogIn.Text = "<li><a data-toggle=\"modal\" href=\"#modalSignIn\"><span class=\"glyphicon glyphicon-user\"></span> Logga in</a></li>";
+
         }
     }
 }
