@@ -12,7 +12,6 @@ namespace SQLHandler
             Email = email;
             Password = password;
             ID = id;
-
         }
 
         public string Name { get; set; }
