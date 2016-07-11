@@ -11,7 +11,15 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack)
+            {
+                this.Validate();
 
+                if (this.IsValid)
+                {
+                    SQLHandler.SQL.AddNewCustomer(TextBoxName.Text, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxAddress.Text, TextBoxPhone.Text, TextBoxOrgNr.Text);
+                }
+            }
         }
     }
 }
