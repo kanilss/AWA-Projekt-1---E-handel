@@ -11,9 +11,15 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Är hen inloggad?
+            if(IsPostBack)
+            {
+               //TODO: Jämföra användarnamn och lösenord med SQL-databas. Spara i Session["userid"]
+            }
+
+            //Om ingen är inloggad. Visa upp "logga in" som leder till inloggningsmodal. 
             if(Session["userid"] == null)
                 LiteralLogIn.Text = "<li><a data-toggle=\"modal\" href=\"#modalSignIn\"><span class=\"glyphicon glyphicon-user\"></span> Logga in</a></li>";
+            //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
 
         }
     }

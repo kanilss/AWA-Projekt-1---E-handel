@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-
+    <!-- Headern-->
     <div class="jumbotron">
         <div class="container text-center">
             <h1>Online Store</h1>
@@ -53,6 +53,7 @@
         </div>
     </div>
 
+    <!--Meny-->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -72,7 +73,7 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <%-- Ändras beroende på inloggad eller ej --%>
+                    <%-- Ändras beroende på om man är inloggad eller ej --%>
                     <asp:Literal ID="LiteralLogIn" runat="server"></asp:Literal>
                     <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a></li>
                 </ul>
@@ -81,7 +82,7 @@
     </nav>
 
 
-    <!-- The Modal För Inloggning-->
+    <!-- Modal För Inloggning-->
     <!-- Modal -->
     <div class="modal fade" id="modalSignIn" role="dialog">
         <div class="modal-dialog">
@@ -90,39 +91,37 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 style="color: red;"><span class="glyphicon glyphicon-lock"></span>Login</h4>
+                    <h4 style="color: red;"><span class="glyphicon glyphicon-lock"></span>Logga in</h4>
                 </div>
                 <div class="modal-body">
                     <form role="form">
                         <div class="form-group">
-                            <label for="usrname"><span class="glyphicon glyphicon-user"></span>Username</label>
-                            <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+                            <label for="usrname"><span class="glyphicon glyphicon-user"></span>Användarnamn</label>
+                            <input type="text" class="form-control" id="usrname" placeholder="Fyll i email">
                         </div>
                         <div class="form-group">
-                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Password</label>
-                            <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Lösenord</label>
+                            <input type="text" class="form-control" id="psw" placeholder="Fyll i lösenord">
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" value="" checked>Remember me</label>
+                                <input type="checkbox" value="" checked>Kom ihåg mig</label>
                         </div>
                         <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Login</button>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
-                    <p>Not a member? <a href="#">Sign Up</a></p>
-                    <p>Forgot <a href="#">Password?</a></p>
+                    <p>Inte medlem? <a href="RegisterCustomer.aspx">Registrera dig</a></p>
+                    <p>Glömt <a href="#">Lösenord?</a></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 </body>
 </html>
