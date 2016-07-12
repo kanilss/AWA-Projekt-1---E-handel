@@ -31,7 +31,6 @@ namespace Kontorsprylar
             else if (Session["userName"] != null)
             {
                 LiteralLogIn.Text = $"<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> {Session["userName"]}</a></li>";
-
                 //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
             }
         }

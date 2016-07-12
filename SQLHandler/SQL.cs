@@ -261,7 +261,7 @@ namespace SQLHandler
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
 
-            string strCmd = $"select * from Customers where Email='karinnilsso@gmail.com' and Password='karin'";
+            string strCmd = $"select * from Customers where Email='{email}' and Password='{password}'";
 
             myCommand.CommandText = strCmd;
             myCommand.Connection = myConnection;
