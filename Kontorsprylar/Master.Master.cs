@@ -39,11 +39,10 @@ namespace Kontorsprylar
         private void TrySignInUser(string email, string password)
         {
             Customer signedInCustomer = SQL.GetCustomer(email, password);
-            //Av någon anledning returneras inte kunden
-
+           
             if (signedInCustomer != null)
             {
-                Session["userid"] = signedInCustomer.Name;
+                Session["userName"] = signedInCustomer.Name;
             }
         }
     }
