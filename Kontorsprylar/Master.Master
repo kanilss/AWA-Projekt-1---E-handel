@@ -42,6 +42,62 @@
         .modal-footer {
             background-color: #f9f9f9;
         }
+
+        .glyphicon {
+            margin-right: 5px;
+        }
+
+        .thumbnail {
+            margin-bottom: 20px;
+            padding: 0px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+        }
+
+        .item.list-group-item {
+            float: none;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 10px;
+        }
+
+            .item.list-group-item:nth-of-type(odd):hover, .item.list-group-item:hover {
+                background: #428bca;
+            }
+
+            .item.list-group-item .list-group-image {
+                margin-right: 10px;
+            }
+
+            .item.list-group-item .thumbnail {
+                margin-bottom: 0px;
+            }
+
+            .item.list-group-item .caption {
+                padding: 9px 9px 0px 9px;
+            }
+
+            .item.list-group-item:nth-of-type(odd) {
+                background: #eeeeee;
+            }
+
+            .item.list-group-item:before, .item.list-group-item:after {
+                display: table;
+                content: " ";
+            }
+
+            .item.list-group-item img {
+                float: left;
+            }
+
+            .item.list-group-item:after {
+                clear: both;
+            }
+
+        .list-group-item-text {
+            margin: 0 0 11px;
+        }
     </style>
 </head>
 <body>
@@ -75,7 +131,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <%-- Ändras beroende på om man är inloggad eller ej --%>
                     <asp:Literal ID="LiteralLogIn" runat="server"></asp:Literal>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorg</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a></li>
                 </ul>
             </div>
         </div>
@@ -96,14 +152,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="email"><span class="glyphicon glyphicon-user"></span> Användarnamn</label>
+                            <label for="email"><span class="glyphicon glyphicon-user"></span>Användarnamn</label>
                             <asp:TextBox ID="TextBoxLoginEmail" CssClass="form-control" runat="server"></asp:TextBox>
                             <%--<input type="text" class="form-control" id="usrname" placeholder="Fyll i email">--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVLoginEmail" runat="server" ErrorMessage="Email krävs" ControlToValidate="TextBoxLoginEmail" EnableClientScript="False"></asp:RequiredFieldValidator>
 
                         <div class="form-group">
-                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Lösenord</label>
+                            <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Lösenord</label>
                             <asp:TextBox ID="TextBoxLoginPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
                             <%--<input type="text" class="form-control" id="psw" placeholder="Fyll i lösenord">--%>
                         </div>

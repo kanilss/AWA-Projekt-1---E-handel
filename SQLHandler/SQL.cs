@@ -107,7 +107,7 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-        static public void AddNewProduct(string name, int price, string description)
+        static public void AddNewProduct(string name, int price, string description, string pictureLink)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
@@ -125,8 +125,12 @@ namespace SQLHandler
             myCommand.Parameters.Add(paramEmail);
 
             SqlParameter paramPassword = new SqlParameter("@description", SqlDbType.VarChar, 255);
-            paramPassword.Value = description;
+            paramPassword.Value = pictureLink;
             myCommand.Parameters.Add(paramPassword);
+
+            SqlParameter paramPictureLink = new SqlParameter("@pictureLink", SqlDbType.VarChar, 255);
+            paramPictureLink.Value = description;
+            myCommand.Parameters.Add(paramPictureLink);
 
             SqlParameter paramID = new SqlParameter("@new_id", SqlDbType.Int);
             paramID.Direction = ParameterDirection.Output;
@@ -203,7 +207,7 @@ namespace SQLHandler
 
                 while (myReader.Read())
                 {
-                    products.Add(new Product(myReader["Name"].ToString(), Convert.ToInt32(myReader["Price"]), Convert.ToInt32(myReader["PID"]), myReader["Description"].ToString()));
+                    products.Add(new Product(myReader["Name"].ToString(), Convert.ToInt32(myReader["Price"]), Convert.ToInt32(myReader["PID"]), myReader["Description"].ToString(), myReader["PictureLink"].ToString()));
                 }
             }
             catch (Exception ex)
