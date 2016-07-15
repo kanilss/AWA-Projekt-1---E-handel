@@ -67,6 +67,44 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
+
+        public static Admin GetAdmin(string email, string password)
+        {
+            Admin tmpAdmin = null;
+
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            string strCmd = $"select * from Admins where Email='{email}' and Password='{password}'";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+
+            try
+            {
+                myConnection.Open();
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string name = myReader["Name"].ToString();
+                    int id = Convert.ToInt32(myReader["AID"]);
+                    tmpAdmin = new Admin(name, email, password, id);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Response.Write($"<script>alert('{ex.Message}');</script>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return tmpAdmin;
+        }
+
         static public void AddNewAdmin(string name, string email, string password)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
@@ -296,6 +334,46 @@ namespace SQLHandler
             }
 
             return tmpCustomer;
+        }
+
+        static public Product GetProduct(int PID)
+        {
+            Product tmpProduct = null;
+
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            string strCmd = $"select * from Products where PID='{PID}'";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+
+            try
+            {
+                myConnection.Open();
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string name = myReader["Name"].ToString();
+                    decimal price = Convert.ToDecimal(myReader["Price"]);
+                    string description = myReader["Description"].ToString();
+                    string pictureLink = myReader["PictureLink"].ToString();
+                    int id = Convert.ToInt32(myReader["PID"]);
+                    tmpProduct = new Product(name, price, id, description, pictureLink);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Response.Write($"<script>alert('{ex.Message}');</script>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return tmpProduct;
         }
 
     }

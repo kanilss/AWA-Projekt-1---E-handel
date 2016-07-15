@@ -12,6 +12,7 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (IsPostBack)
             {
                 RFVLoginEmail.Validate();
@@ -23,7 +24,7 @@ namespace Kontorsprylar
                 }
             }
 
-            //Om ingen är inloggad. Visa upp "logga in" som leder till inloggningsmodal. 
+            //Om ingen kund är inloggad. Visa upp "logga in" som leder till inloggningsmodal. 
             if (Session["userName"] == null)
             {
                 LiteralLogIn.Text = "<li><a data-toggle=\"modal\" href=\"#modalSignIn\"><span class=\"glyphicon glyphicon-user\"></span> Logga in</a></li>";
@@ -33,15 +34,30 @@ namespace Kontorsprylar
                 LiteralLogIn.Text = $"<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> {Session["userName"]}</a></li>";
                 //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
             }
+
+            //Kolla om administratör är inloggad    
+            if (Session["adminName"] == null)
+            {
+                LiteralAdmin.Text = "<span style=\"float:right;\"><a href=\"LoginAdmin.aspx\">Logga in som administratör</a></span>";
+            }
+            else if (Session["adminName"] != null)
+            {
+                string html = "";
+                html += "<span style=\"float:right;\"><a href=\"#\">Hantera produkter</a></span></br>";
+                html += "<span style=\"float:right;\"><a href=\"#\">Hantera kunder</a></span>";
+                LiteralAdmin.Text = html;
+            }
         }
 
         private void TrySignInUser(string email, string password)
         {
             Customer signedInCustomer = SQL.GetCustomer(email, password);
-           
+
             if (signedInCustomer != null)
             {
                 Session["userName"] = signedInCustomer.Name;
+                Session["userEmail"] = email;
+                Session["password"] = password;
             }
         }
     }

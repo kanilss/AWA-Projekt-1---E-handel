@@ -11,6 +11,7 @@ namespace Kontorsprylar
     public partial class Products : System.Web.UI.Page
     {
         List<Product> products = SQL.LoadProducts();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack)
@@ -20,9 +21,16 @@ namespace Kontorsprylar
 
                 if (action != null && product != null)
                 {
-                    //Add product to shoppingchart
-                }
+                    try
+                    {
+                        //Add product to shoppingcart
 
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
             }
             LoadProducts();
         }

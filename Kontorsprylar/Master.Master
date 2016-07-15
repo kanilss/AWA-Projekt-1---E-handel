@@ -184,6 +184,11 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
+
+        <footer class="container-fluid text-center">
+            <asp:Literal ID="LiteralAdmin" runat="server"></asp:Literal>
+        </footer>
     </form>
 </body>
 </html>

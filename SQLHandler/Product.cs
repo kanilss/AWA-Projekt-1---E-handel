@@ -6,7 +6,7 @@ namespace SQLHandler
 {
     public class Product
     {
-        public Product(string name, int price, int pid, string description, string pictureLink)
+        public Product(string name, decimal price, int pid, string description, string pictureLink)
         {
             Name = name;
             Price = price;
@@ -16,7 +16,7 @@ namespace SQLHandler
         }
 
         public string Name { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public int PID { get; set; }
         public string Description { get; set; }
         public string PictureLink { get; set; }
