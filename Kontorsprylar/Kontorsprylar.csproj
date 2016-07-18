@@ -94,6 +94,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ContactUs.aspx" />
+    <Content Include="HandleCustomers.aspx" />
+    <Content Include="HandleProducts.aspx" />
     <Content Include="LoginAdmin.aspx" />
     <Content Include="packages.config" />
     <Content Include="Master.Master" />
@@ -114,6 +117,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HandleCustomers.aspx.cs">
+      <DependentUpon>HandleCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HandleCustomers.aspx.designer.cs">
+      <DependentUpon>HandleCustomers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HandleProducts.aspx.cs">
+      <DependentUpon>HandleProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HandleProducts.aspx.designer.cs">
+      <DependentUpon>HandleProducts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -376,5 +376,32 @@ namespace SQLHandler
             return tmpProduct;
         }
 
+        static public void DeleteCustomer(int id)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+
+            string strCmd = $"delete from Customers where CID={id}";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+
+
     }
 }

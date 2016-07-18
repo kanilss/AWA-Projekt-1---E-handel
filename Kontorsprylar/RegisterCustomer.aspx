@@ -6,7 +6,6 @@
     <div class="container">
         <div class="row main">
             <div class="main-login main-center">
-                <%--<form class="form-horizontal" method="post" action="#">--%>
 
                 <div class="form-group">
                     <label for="name" class="cols-sm-2 control-label">Ditt namn</label>
@@ -14,7 +13,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" name="name" id="name" placeholder="Fyll i namn" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVName" runat="server" ErrorMessage="Namn krävs" EnableClientScript="False" ControlToValidate="TextBoxName"></asp:RequiredFieldValidator>
                     </div>
@@ -26,7 +24,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" name="email" id="email" placeholder="Fyll i mailadress"--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVEmail" runat="server" ErrorMessage="Email krävs" EnableClientScript="False" ControlToValidate="TextBoxEmail"></asp:RequiredFieldValidator>
                     </div>
@@ -38,7 +35,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxAddress" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" name="address" id="address" placeholder="Fyll i adress" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVAddress" runat="server" ErrorMessage="Address krävs" EnableClientScript="False" ControlToValidate="TextBoxAddress"></asp:RequiredFieldValidator>
                     </div>
@@ -50,7 +46,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxPhone" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" name="phone" id="phone" placeholder="Fyll i telefonnummer" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVPhone" runat="server" ErrorMessage="Telefonnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxPhone"></asp:RequiredFieldValidator>
                     </div>
@@ -62,7 +57,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxOrgNr" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--  <input type="text" class="form-control" name="orgnr" id="orgnr" placeholder="Fyll i organisationsnummer" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVOrgNr" runat="server" ErrorMessage="Organisationsnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxOrgNr"></asp:RequiredFieldValidator>
                     </div>
@@ -74,7 +68,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxPassword" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="password" class="form-control" name="password" id="password" placeholder="Fyll i ditt lösenord" />--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVPassword" runat="server" ErrorMessage="Lösenord krävs" EnableClientScript="False" ControlToValidate="TextBoxPassword"></asp:RequiredFieldValidator>
                     </div>
@@ -86,7 +79,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                             <asp:TextBox ID="TextBoxConfirm" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="password" class="form-control" name="confirm" id="confirm" placeholder="Bekräfta ditt lösenord" />--%>
                         </div>
                         <asp:CompareValidator ID="CVConfirm" runat="server" ErrorMessage="Lösenord matchar inte" EnableClientScript="False" ControlToCompare="TextBoxPassword" ControlToValidate="TextBoxConfirm"></asp:CompareValidator>
                     </div>
@@ -94,9 +86,7 @@
 
                 <div class="form-group ">
                     <asp:Button ID="Button1" CssClass="btn btn-primary btn-lg btn-block login-button" runat="server" Text="Registrera" />
-                    <%--<button type="button" class="btn btn-primary btn-lg btn-block login-button">Registrera</button>--%>
                 </div>
-                <%--</form>--%>
             </div>
         </div>
     </div>

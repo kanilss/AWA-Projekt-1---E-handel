@@ -14,9 +14,17 @@ namespace Kontorsprylar
         {
             if (IsPostBack)
             {
-                this.Validate();
+                // Får det inte att fungera med this.Validate() och this.IsValid
+                RFVName.Validate();
+                RFVEmail.Validate();
+                RFVAddress.Validate();
+                RFVPhone.Validate();
+                RFVOrgNr.Validate();
+                RFVPassword.Validate();
+                CVConfirm.Validate();
 
-                if (this.IsValid)
+
+                if (RFVName.IsValid && RFVEmail.IsValid && RFVAddress.IsValid &&RFVPhone.IsValid && RFVOrgNr.IsValid && RFVPassword.IsValid && CVConfirm.IsValid)
                 {
                     SQL.AddNewCustomer(TextBoxName.Text, TextBoxEmail.Text, TextBoxPassword.Text, TextBoxAddress.Text, TextBoxPhone.Text, TextBoxOrgNr.Text);
                 }
