@@ -60,5 +60,41 @@ namespace Kontorsprylar
                 Session["password"] = password;
             }
         }
+
+
+        private void LoadChart()
+
+            //EJ FÄRDIGT (Laddar produkter i modalen för varukorgen)
+        {
+            List<Product> chart = (List<Product>) Session["Chart"];
+            string html = "";
+            foreach (var product in chart)
+            {
+                html += "<div id=\"products\" class=\"row list-group\">";
+                html += "<div class=\"item col-xs-4 col-lg-4\">";
+                html += $"<div class=\"thumbnail\">";
+                html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
+                html += $"<div class=\"caption\">";
+                html += $"<h4 class=\"group inner list-group-item-heading\">";
+                html += $"{product.Name}</h4>";
+                html += $"<p class=\"group inner list-group-item-text\">";
+                html += $"{product.Description}</p>";
+                html += $"<div class=\"row\">";
+                html += $"<div class=\"col-xs-12 col-md-6\">";
+                html += $"<p class=\"lead\">";
+                html += $"{product.Price} kr</p>";
+                html += $"</div>";
+                html += $"<div class=\"col-xs-12 col-md-6\">";
+                html += $"<a class=\"btn btn-success\" href=\"products.aspx?action=add&product={product.PID}\">Lägg till i varukorg</a>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+                html += "</div>";
+            }
+
+            LiteralChart.Text = html;
+        }
     }
 }
