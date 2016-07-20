@@ -43,7 +43,7 @@ namespace Kontorsprylar
             else if (Session["adminName"] != null)
             {
                 string html = "";
-                html += "<span style=\"float:right;\"><a href=\"#\">Hantera produkter</a></span></br>";
+                html += "<span style=\"float:right;\"><a href=\"HandleProducts.aspx\">Hantera produkter</a></span></br>";
                 html += "<span style=\"float:right;\"><a href=\"HandleCustomers.aspx\">Hantera kunder</a></span>";
                 LiteralAdmin.Text = html;
             }

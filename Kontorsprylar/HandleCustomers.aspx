@@ -11,6 +11,10 @@
             $('#ModalOrderHistory').modal('show');
         }
     </script>
+    <div class="container text-center">
+        <h2>Hantera kunder</h2>
+    </div>
+
     <asp:ListView ID="LVCustomers" runat="server" OnItemCommand="LVCustomers_ItemCommand" OnItemDeleting="LVCustomers_ItemDeleting" OnItemEditing="LVCustomers_ItemEditing">
         <LayoutTemplate>
             <table class="table" border="0">
@@ -26,7 +30,7 @@
                     <th>
                         <asp:LinkButton ID="lnkPhone" runat="server">Telefon</asp:LinkButton></th>
                     <th>
-                        <asp:LinkButton ID="lnkOrgNr" runat="server">Organisationsnr</asp:LinkButton></th> 
+                        <asp:LinkButton ID="lnkOrgNr" runat="server">Organisationsnr</asp:LinkButton></th>
                     <th></th>
                 </tr>
                 <tr id="itemPlaceholder" runat="server"></tr>

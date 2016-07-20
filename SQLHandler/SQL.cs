@@ -145,7 +145,7 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-        static public void AddNewProduct(string name, int price, string description, string pictureLink)
+        static public void AddNewProduct(string name, decimal price, string description, string pictureLink)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
@@ -163,11 +163,11 @@ namespace SQLHandler
             myCommand.Parameters.Add(paramEmail);
 
             SqlParameter paramPassword = new SqlParameter("@description", SqlDbType.VarChar, 255);
-            paramPassword.Value = pictureLink;
+            paramPassword.Value = description;
             myCommand.Parameters.Add(paramPassword);
 
             SqlParameter paramPictureLink = new SqlParameter("@pictureLink", SqlDbType.VarChar, 255);
-            paramPictureLink.Value = description;
+            paramPictureLink.Value = pictureLink;
             myCommand.Parameters.Add(paramPictureLink);
 
             SqlParameter paramID = new SqlParameter("@new_id", SqlDbType.Int);
@@ -488,5 +488,77 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
+        static public void UpdateProduct(string name, decimal price, string description, string pictureLink, int id)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spUpdateProduct";
+
+            SqlParameter paramName = new SqlParameter("@name", SqlDbType.VarChar, 255);
+            paramName.Value = name;
+            myCommand.Parameters.Add(paramName);
+
+            SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.Money, 255);
+            paramPrice.Value = price;
+            myCommand.Parameters.Add(paramPrice);
+
+            SqlParameter paramDescription = new SqlParameter("@description", SqlDbType.VarChar, 255);
+            paramDescription.Value = description;
+            myCommand.Parameters.Add(paramDescription);
+
+
+            SqlParameter paramPicLink = new SqlParameter("@pictureLink", SqlDbType.VarChar, 255);
+            paramPicLink.Value = pictureLink;
+            myCommand.Parameters.Add(paramPicLink);
+
+
+            SqlParameter paramID = new SqlParameter("@pid", SqlDbType.Int);
+            paramID.Value = id;
+            myCommand.Parameters.Add(paramID);
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+
+        static public void DeleteProduct(int id)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+
+            string strCmd = $"delete from Products where PID={id}";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+
     }
 }
