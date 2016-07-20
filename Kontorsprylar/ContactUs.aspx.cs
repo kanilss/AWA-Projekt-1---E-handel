@@ -13,5 +13,10 @@ namespace Kontorsprylar
         {
 
         }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            // Vad vill vi göra med meddelandet?
+        }
     }
 }

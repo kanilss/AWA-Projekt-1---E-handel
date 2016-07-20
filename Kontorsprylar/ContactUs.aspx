@@ -3,30 +3,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <div class="container text-center">
+        <h2>Kontakta oss</h2>
+    </div>
     <div class="container">
-            <div class="row">
-                <div class="span3">
-                    <label>Förnamn</label>
-                    <input type="text" class="span3" placeholder="Your First Name">
-                    <label>Efternamn</label>
-                    <input type="text" class="span3" placeholder="Your Last Name">
-                    <label>Emailadress</label>
-                    <input type="text" class="span3" placeholder="Your email address">
-                    <label>
-                        Ämne
-			<select id="subject" name="subject" class="span3">
-                <option value="na" selected="">Välj en</option>
-                <option value="service">General Customer Service</option>
-                <option value="suggestions">Suggestions</option>
-                <option value="product">Product Support</option>
-            </select>
-                    </label>
+        <div class="row">
+            <div class="form-group">
+                <label>Förnamn</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <asp:TextBox ID="TextBoxName" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                <div class="span5">
-                    <label>Meddelande</label>
-                    <textarea name="message" id="message" class="input-xlarge span5" rows="10"></textarea>
+
+                <label>Emailadress</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right">Send</button>
+
+                <label>Ämne</label>
+                <select id="subject" name="subject" class="form-control">
+                    <option value="na" selected="">Välj ett</option>
+                    <option value="service">Kundservice</option>
+                    <option value="suggestions">Förslag</option>
+                    <option value="product">Produktsupport</option>
+                </select>
             </div>
+            <label>Meddelande</label>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <asp:TextBox ID="TextBoxMessage" TextMode="MultiLine" Rows="5" CssClass="form-control" runat="server"></asp:TextBox>
+            </div>
+        </div>
+        <br />
+        <asp:Button ID="submit" runat="server" Text="Skicka" OnClick="submit_Click" />
+        <button type="submit" onclick="" class="btn btn-primary pull-right">Skicka</button>
+        <br />
     </div>
 </asp:Content>

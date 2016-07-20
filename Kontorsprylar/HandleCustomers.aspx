@@ -26,7 +26,7 @@
                     <th>
                         <asp:LinkButton ID="lnkPhone" runat="server">Telefon</asp:LinkButton></th>
                     <th>
-                        <asp:LinkButton ID="lnkOrgNr" runat="server">Organisationsnr</asp:LinkButton></th>
+                        <asp:LinkButton ID="lnkOrgNr" runat="server">Organisationsnr</asp:LinkButton></th> 
                     <th></th>
                 </tr>
                 <tr id="itemPlaceholder" runat="server"></tr>
