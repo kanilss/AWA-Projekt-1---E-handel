@@ -24,7 +24,6 @@ namespace Kontorsprylar
                     try
                     {
                         //Add product to shoppingcart
-
                     }
                     catch (Exception)
                     {
