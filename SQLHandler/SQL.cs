@@ -533,7 +533,6 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-
         static public void DeleteProduct(int id)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
@@ -544,6 +543,37 @@ namespace SQLHandler
 
             myCommand.CommandText = strCmd;
             myCommand.Connection = myConnection;
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+        static public void UpdateCustomer(string password, int id)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spUpdateCustomerPassword";
+
+            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar, 255);
+            paramPassword.Value = password;
+            myCommand.Parameters.Add(paramPassword);
+
+            SqlParameter paramID = new SqlParameter("@cid", SqlDbType.Int);
+            paramID.Value = id;
+            myCommand.Parameters.Add(paramID);
             try
             {
                 myConnection.Open();

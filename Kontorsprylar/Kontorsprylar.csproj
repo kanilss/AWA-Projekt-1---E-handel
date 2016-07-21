@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ContactUs.aspx" />
+    <Content Include="CustomerHandleAccount.aspx" />
     <Content Include="HandleCustomers.aspx" />
     <Content Include="HandleProducts.aspx" />
     <Content Include="LoginAdmin.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerHandleAccount.aspx.cs">
+      <DependentUpon>CustomerHandleAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerHandleAccount.aspx.designer.cs">
+      <DependentUpon>CustomerHandleAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="HandleCustomers.aspx.cs">
       <DependentUpon>HandleCustomers.aspx</DependentUpon>

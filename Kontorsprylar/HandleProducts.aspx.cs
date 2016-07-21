@@ -12,12 +12,30 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // if (Session["adminName"] != null)
+            string html = "";
+            // Kollar så att admin är inloggad
+            if (Session["adminName"] != null)
             {
+                html += "<div class=\"container text-center\">";
+                html += "<h2>Hantera produkter</h2>";
+                html += "</div>";
+                html += "<br />";
+                html += "<button type=\"button\" class=\"btn btn-info btn-lg\" data-toggle=\"modal\" data-target=\"#ModalNewProduct\">Ny produkt</button>";
+
+                Literal1.Text = html;
+
                 if (!IsPostBack)
                 {
                     BindListView();
                 }
+            }
+            // Om admin inte är inloggad visas "Du har inte behörighet..."
+            else
+            {
+                html += "<div class=\"container text-center\">";
+                html += "<h2>Du har inte behörighet för att visa sidan</h2>";
+                html += "</div>";
+                Literal1.Text = html;
             }
         }
 
@@ -59,23 +77,28 @@ namespace Kontorsprylar
 
         protected void LVCustomers_ItemDeleting(object sender, ListViewDeleteEventArgs e)
         {
-            // Måste ha den här funktionen annars får jag ett fel. Men vet inte hur jag kan komma åt id-värdet här för att ta bort kunden.
+            // Måste ha den här metod annars får jag ett fel. Men vet inte hur jag kan komma åt id-värdet här för att ta bort kunden.
             // Om någon har en bra idé får ni gärna ändra!
         }
 
         protected void LVCustomers_ItemEditing(object sender, ListViewEditEventArgs e)
         {
+            // Precis som ovan behövs denna metod. 
         }
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
             SQL.UpdateProduct(TextBoxName.Text, Convert.ToDecimal(TextBoxPris.Text), TextBoxDescription.Text, TextBoxPicLink.Text, Convert.ToInt32(HiddenFieldID.Value));
+
+            // Laddar om produkterna från databasen
             BindListView();
         }
 
         protected void ButtonNewProduct_Click(object sender, EventArgs e)
         {
             SQL.AddNewProduct(TextBoxNameNew.Text, Convert.ToDecimal(TextBoxPriceNew.Text), TextBoxDescriptionNew.Text, TextBoxPicLinkNew.Text);
+
+            // Laddar om produkterna från databasen
             BindListView();
         }
     }
