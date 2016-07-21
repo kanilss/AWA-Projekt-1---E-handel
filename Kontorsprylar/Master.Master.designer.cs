@@ -31,6 +31,15 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.Literal LiteralLogIn;
         
         /// <summary>
+        /// LiteralCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LiteralCart;
+        
+        /// <summary>
         /// TextBoxLoginEmail control.
         /// </summary>
         /// <remarks>
@@ -85,12 +94,12 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.Literal LiteralAdmin;
         
         /// <summary>
-        /// LiteralChart control.
+        /// LiteralCartContent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal LiteralChart;
+        protected global::System.Web.UI.WebControls.Literal LiteralCartContent;
     }
 }

@@ -14,24 +14,35 @@ namespace Kontorsprylar
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
+         
                 string action = Request["action"];
                 string product = Request["product"];
 
-                if (action != null && product != null)
+                if (action != null && action == "add" && product != null)
                 {
                     try
                     {
-                        //Add product to shoppingcart
-
+                    List<Product> cart = (List<Product>)Session["Cart"];
+                    if (cart == null)
+                    {
+                        cart = new List<Product>();
+                        Session["cart"] = cart;
+                        foreach (var p in products)
+                        {
+                            if (p.PID == Convert.ToInt32(product))
+                            {
+                                cart.Add(p);
+                            }
+                        }
                     }
+
+                }
                     catch (Exception)
                     {
                         throw;
                     }
                 }
-            }
+            
             LoadProducts();
         }
 

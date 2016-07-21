@@ -12,7 +12,7 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             if (IsPostBack)
             {
                 RFVLoginEmail.Validate();
@@ -28,10 +28,15 @@ namespace Kontorsprylar
             if (Session["userName"] == null)
             {
                 LiteralLogIn.Text = "<li><a data-toggle=\"modal\" href=\"#modalSignIn\"><span class=\"glyphicon glyphicon-user\"></span> Logga in</a></li>";
+                //Varukorgen visas inte när kunden inte är inloggad
+                LiteralCart.Text = "";
             }
             else if (Session["userName"] != null)
             {
                 LiteralLogIn.Text = $"<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> {Session["userName"]}</a></li>";
+                //Varukorgen visas bara om kunden är inloggad
+                LiteralCart.Text = "<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg</a></li>";
+
                 //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
             }
 
@@ -47,6 +52,7 @@ namespace Kontorsprylar
                 html += "<span style=\"float:right;\"><a href=\"HandleCustomers.aspx\">Hantera kunder</a></span>";
                 LiteralAdmin.Text = html;
             }
+            LoadCart();
         }
 
         private void TrySignInUser(string email, string password)
@@ -62,39 +68,51 @@ namespace Kontorsprylar
         }
 
 
-        private void LoadChart()
+        private void LoadCart()
 
             //EJ FÄRDIGT (Laddar produkter i modalen för varukorgen)
         {
-            List<Product> chart = (List<Product>) Session["Chart"];
+            List<Product> cart = (List<Product>) Session["Cart"];
             string html = "";
-            foreach (var product in chart)
+            if (cart == null)
             {
                 html += "<div id=\"products\" class=\"row list-group\">";
                 html += "<div class=\"item col-xs-4 col-lg-4\">";
-                html += $"<div class=\"thumbnail\">";
-                html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
-                html += $"<div class=\"caption\">";
-                html += $"<h4 class=\"group inner list-group-item-heading\">";
-                html += $"{product.Name}</h4>";
-                html += $"<p class=\"group inner list-group-item-text\">";
-                html += $"{product.Description}</p>";
-                html += $"<div class=\"row\">";
-                html += $"<div class=\"col-xs-12 col-md-6\">";
-                html += $"<p class=\"lead\">";
-                html += $"{product.Price} kr</p>";
-                html += $"</div>";
-                html += $"<div class=\"col-xs-12 col-md-6\">";
-                html += $"<a class=\"btn btn-success\" href=\"products.aspx?action=add&product={product.PID}\">Lägg till i varukorg</a>";
-                html += "</div>";
+                html += "Varukorgen är tom</div>";
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";
             }
+            else
+            {
 
-            LiteralChart.Text = html;
+                foreach (var product in cart)
+                {
+                    html += "<div id=\"products\" class=\"row list-group\">";
+                    html += "<div class=\"item col-xs-4 col-lg-4\">";
+                    html += $"<div class=\"thumbnail\">";
+                    html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
+                    html += $"<div class=\"caption\">";
+                    html += $"<h4 class=\"group inner list-group-item-heading\">";
+                    html += $"{product.Name}</h4>";
+                    html += $"<p class=\"group inner list-group-item-text\">";
+                    html += $"{product.Description}</p>";
+                    html += $"<div class=\"row\">";
+                    html += $"<div class=\"col-xs-12 col-md-6\">";
+                    html += $"<p class=\"lead\">";
+                    html += $"{product.Price} kr</p>";
+                    html += $"</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                    html += "</div>";
+                }
+            }
+
+            LiteralCartContent.Text = html;
         }
     }
 }

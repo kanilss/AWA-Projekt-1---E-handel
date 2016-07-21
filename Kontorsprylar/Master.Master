@@ -129,7 +129,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <%-- Ändras beroende på om man är inloggad eller ej --%>
                     <asp:Literal ID="LiteralLogIn" runat="server"></asp:Literal>
-                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a></li>
+                    <asp:Literal ID="LiteralCart" runat="server"></asp:Literal>
+                    <%--<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a></li>--%>
                 </ul>
             </div>
         </div>
@@ -188,7 +189,7 @@
             <asp:Literal ID="LiteralAdmin" runat="server"></asp:Literal>
         </footer>
     </form>
-    <form role="form" runat="server">
+
 
         <!-- Modal För varukorg-->
         <!-- Modal -->
@@ -199,16 +200,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 style="color: red;"><span class="glyphicon glyphicon-lock"></span>Varukorg</h4>
+                        <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a>
+                        <asp:Literal ID="LiteralCartContent" runat="server"></asp:Literal>
+                        
 
                     </div>
                 </div>
             </div>
         </div>
-
-        <div>
-            <asp:Literal ID="LiteralChart" runat="server"></asp:Literal>
-        </div>
-    </form>
 </body>
 </html>
