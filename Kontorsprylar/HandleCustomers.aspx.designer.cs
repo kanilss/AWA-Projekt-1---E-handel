@@ -40,15 +40,6 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.TextBox TextBoxName;
         
         /// <summary>
-        /// RFVName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVName;
-        
-        /// <summary>
         /// TextBoxEmail control.
         /// </summary>
         /// <remarks>
@@ -56,15 +47,6 @@ namespace Kontorsprylar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
-        
-        /// <summary>
-        /// RFVEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVEmail;
         
         /// <summary>
         /// TextBoxAddress control.
@@ -76,15 +58,6 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAddress;
         
         /// <summary>
-        /// RFVAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVAddress;
-        
-        /// <summary>
         /// TextBoxPhone control.
         /// </summary>
         /// <remarks>
@@ -94,15 +67,6 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPhone;
         
         /// <summary>
-        /// RFVPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVPhone;
-        
-        /// <summary>
         /// TextBoxOrgNr control.
         /// </summary>
         /// <remarks>
@@ -110,15 +74,6 @@ namespace Kontorsprylar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxOrgNr;
-        
-        /// <summary>
-        /// RFVOrgNr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVOrgNr;
         
         /// <summary>
         /// ButtonSave control.

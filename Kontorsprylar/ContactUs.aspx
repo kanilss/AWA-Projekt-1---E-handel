@@ -37,8 +37,7 @@
             </div>
         </div>
         <br />
-        <asp:Button ID="submit" runat="server" Text="Skicka" OnClick="submit_Click" />
-        <button type="submit" onclick="" class="btn btn-primary pull-right">Skicka</button>
+        <asp:Button ID="submit" runat="server" CssClass="btn btn-primary pull-right" Text="Skicka" OnClick="submit_Click" />
         <br />
     </div>
 </asp:Content>

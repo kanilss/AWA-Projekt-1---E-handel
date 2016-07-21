@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript">
+        //Funktioner för att visa modalerna
         function openModalUpdateCustomer() {
             $('#ModalUpdateCustomer').modal('show');
         }
@@ -79,10 +80,9 @@
 
             </tr>
         </AlternatingItemTemplate>
-
     </asp:ListView>
 
-    <!-- Modal Update Customer-->
+    <!-- Modal för att uppdatera kunder-->
     <div id="ModalUpdateCustomer" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
@@ -106,7 +106,7 @@
                                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                             <asp:TextBox ID="TextBoxName" CssClass="form-control" Width="535px" runat="server"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RFVName" runat="server" ErrorMessage="Namn krävs" EnableClientScript="False" ControlToValidate="TextBoxName"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RFVName" runat="server" ErrorMessage="Namn krävs" EnableClientScript="False" ControlToValidate="TextBoxName"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
 
@@ -117,7 +117,7 @@
                                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
                                             <asp:TextBox ID="TextBoxEmail" CssClass="form-control" Width="535px" runat="server"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RFVEmail" runat="server" ErrorMessage="Email krävs" EnableClientScript="False" ControlToValidate="TextBoxEmail"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RFVEmail" runat="server" ErrorMessage="Email krävs" EnableClientScript="False" ControlToValidate="TextBoxEmail"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
 
@@ -128,7 +128,7 @@
                                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                             <asp:TextBox ID="TextBoxAddress" CssClass="form-control" Width="535px" runat="server"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RFVAddress" runat="server" ErrorMessage="Address krävs" EnableClientScript="False" ControlToValidate="TextBoxAddress"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RFVAddress" runat="server" ErrorMessage="Address krävs" EnableClientScript="False" ControlToValidate="TextBoxAddress"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
 
@@ -139,7 +139,7 @@
                                             <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                             <asp:TextBox ID="TextBoxPhone" CssClass="form-control" Width="535px" runat="server"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RFVPhone" runat="server" ErrorMessage="Telefonnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxPhone"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RFVPhone" runat="server" ErrorMessage="Telefonnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxPhone"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
 
@@ -150,7 +150,7 @@
                                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                             <asp:TextBox ID="TextBoxOrgNr" CssClass="form-control" Width="535px" runat="server"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RFVOrgNr" runat="server" ErrorMessage="Organisationsnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxOrgNr"></asp:RequiredFieldValidator>
+                                        <%--<asp:RequiredFieldValidator ID="RFVOrgNr" runat="server" ErrorMessage="Organisationsnummer krävs" EnableClientScript="False" ControlToValidate="TextBoxOrgNr"></asp:RequiredFieldValidator>--%>
                                     </div>
                                 </div>
 
@@ -169,7 +169,7 @@
     </div>
 
 
-    <!-- Modal Order History-->
+    <!-- Modal för att visa orderhistorik-->
     <div id="ModalOrderHistory" class="modal fade" role="dialog">
         <div class="modal-dialog">
 

@@ -10,12 +10,7 @@
         }
     </script>
 
-    <div class="container text-center">
-        <h2>Hantera produkter</h2>
-    </div>
-    <br />
-
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalNewProduct">Ny produkt</button>
+    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
     <br />
 
     <asp:ListView ID="LVCustomers" runat="server" OnItemCommand="LVCustomers_ItemCommand" OnItemDeleting="LVCustomers_ItemDeleting" OnItemEditing="LVCustomers_ItemEditing">
