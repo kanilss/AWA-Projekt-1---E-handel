@@ -6,38 +6,20 @@
 
     <div class="container text-center">
         <h2>Logga in som administratör</h2>
-    </div>
-    <br />
-        <div class="container">
-            <table style="margin-left:auto; margin-right:auto; column-gap:2px" >
-                <tr>
-                    <td>
-                        <label><b>Email</b></label>
-                    </td>
-                    <td>&nbsp</td>
-                    <td>
-                        <asp:textbox id="TextBoxEmail" textmode="email" runat="server"></asp:textbox>
-                        <asp:requiredfieldvalidator id="RFVEmail" runat="server" errormessage="Fyll i email-adress" controltovalidate="TextBoxEmail" enableclientscript="False"></asp:requiredfieldvalidator>
-                    </td>
-                </tr>
-                <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
-                <tr>
-                    <td>
-                        <label><b>Lösenord</b></label>
-                    </td>
-                    <td>&nbsp</td>
-                    <td>
-                        <asp:textbox id="TextBoxPassword" textmode="password" runat="server"></asp:textbox>
-                        <asp:requiredfieldvalidator id="RFVPassword" runat="server" errormessage="Fyll i lösenord" controltovalidate="TextBoxPassword" enableclientscript="False"></asp:requiredfieldvalidator>
-                    </td>
-                </tr>
-                <tr><td>&nbsp</td><td>&nbsp</td><td>&nbsp</td></tr>
-                <tr>
-                    <td>&nbsp</td>
-                   <td>&nbsp</td>
-                    <td style="float:right"><button type="submit">Logga in</button></td>
-                </tr>
-            </table>
+        <br />
+        <div class="container" style="width:auto">
+            <div class="form-group">
+                <label for="email"><span class="glyphicon glyphicon-user"></span>Email</label>
+                <asp:TextBox ID="TextBoxLoginEmail" CssClass="form-control" style="text-align:center" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RFVLoginEmail" runat="server" ErrorMessage="Email krävs" ControlToValidate="TextBoxLoginEmail" EnableClientScript="False"></asp:RequiredFieldValidator>
+            </div>
+            <div class="form-group">
+                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Lösenord</label>
+                <asp:TextBox ID="TextBoxLoginPassword" CssClass="form-control" style="text-align:center" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RFVLoginPassword" runat="server" ErrorMessage="Lösenord krävs" EnableClientScript="False" ControlToValidate="TextBoxLoginPassword"></asp:RequiredFieldValidator>
+            </div>
+            <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Login</button>
         </div>
-
+    </div>
+    <br/>
 </asp:Content>

@@ -13,39 +13,39 @@ namespace Kontorsprylar {
     public partial class LoginAdmin {
         
         /// <summary>
-        /// TextBoxEmail control.
+        /// TextBoxLoginEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxLoginEmail;
         
         /// <summary>
-        /// RFVEmail control.
+        /// RFVLoginEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVEmail;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVLoginEmail;
         
         /// <summary>
-        /// TextBoxPassword control.
+        /// TextBoxLoginPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxLoginPassword;
         
         /// <summary>
-        /// RFVPassword control.
+        /// RFVLoginPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVPassword;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVLoginPassword;
     }
 }

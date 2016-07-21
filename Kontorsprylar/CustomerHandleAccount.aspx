@@ -3,7 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <script>
+        function openmodalUpdatePassword() {
+            $('#modalUpdatePassword').modal('show');
+        }
+    </script>
     <div style="float: left; width: 40%; margin-left: 10px">
         <div class="container" style="width: auto">
             <div class="row main">
@@ -79,6 +83,7 @@
 
                     <div class="form-group ">
                         <asp:Button ID="ButtonUpdate" OnClick="ButtonUpdate_Click" CssClass="btn btn-primary btn-lg btn-block login-button" runat="server" Text="Uppdatera" />
+                        <asp:Button ID="ButtonUpdatePassword" OnClick="ButtonUpdatePassword_Click" CssClass="btn btn-primary btn-lg btn-block login-button" runat="server" Text="Byt lösenord" />
                     </div>
                 </div>
             </div>
@@ -92,4 +97,38 @@
         </div>
     </div>
 
+    <!-- Modal För att uppdatera lösenord-->
+    <!-- Modal -->
+    <div class="modal fade" id="modalUpdatePassword" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 style="color: red;"><span class="glyphicon glyphicon-lock"></span>Logga in</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="oldPswd"><span class="glyphicon glyphicon-eye-open"></span>Gammalt lösenord</label>
+                        <asp:TextBox ID="TextBoxOldPswd" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPswd"><span class="glyphicon glyphicon-eye-open"></span>Nytt lösenord</label>
+                        <asp:TextBox ID="TextBoxNewPswd" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPswd"><span class="glyphicon glyphicon-eye-open"></span>Bekräfta nytt lösenord</label>
+                        <asp:TextBox ID="TextBoxConfirmNewPswd" TextMode="Password" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                    <asp:LinkButton ID="LBUpdatePsw" OnClick="LBUpdatePsw_Click" CssClass="btn btn-default btn-success btn-block" runat="server"><span class="glyphicon glyphicon-off"></span>Uppdatera lösenord</asp:LinkButton>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

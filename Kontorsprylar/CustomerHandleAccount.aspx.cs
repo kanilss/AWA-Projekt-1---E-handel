@@ -39,8 +39,6 @@ namespace Kontorsprylar
                     }
                 }
             }
-
-
         }
 
         protected void ButtonUpdate_Click(object sender, EventArgs e)
@@ -54,6 +52,21 @@ namespace Kontorsprylar
                 SQL.UpdateCustomer(TextBoxName.Text, TextBoxEmail.Text, TextBoxAddress.Text, TextBoxPhone.Text, TextBoxOrgNr.Text, Convert.ToInt32(HiddenFieldID.Value));
                 // Ifall email-adressen uppdaterats sparas den nya mailadressen i session
                 Session["userEmail"] = TextBoxEmail.Text;
+            }
+        }
+
+        protected void ButtonUpdatePassword_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openmodalUpdatePassword();", true);
+
+        }
+
+        protected void LBUpdatePsw_Click(object sender, EventArgs e)
+        {
+            Customer tmpCustomer = SQL.GetCustomer(Session["userEmail"].ToString(), TextBoxOldPswd.Text);
+            if (tmpCustomer!=null && TextBoxNewPswd.Text == TextBoxConfirmNewPswd.Text)
+            {
+                SQL.UpdateCustomer(TextBoxNewPswd.Text, tmpCustomer.ID);
             }
         }
     }

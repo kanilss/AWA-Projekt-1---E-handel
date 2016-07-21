@@ -14,12 +14,12 @@ namespace Kontorsprylar
         {
             if (IsPostBack)
             {
-                RFVEmail.Validate();
-                RFVPassword.Validate();
+                RFVLoginEmail.Validate();
+                RFVLoginPassword.Validate();
 
-                if (RFVEmail.IsValid && RFVPassword.IsValid)
+                if (RFVLoginEmail.IsValid && RFVLoginPassword.IsValid)
                 {
-                    TrySignInAdmin(TextBoxEmail.Text, TextBoxPassword.Text);
+                    TrySignInAdmin(TextBoxLoginEmail.Text, TextBoxLoginPassword.Text);
                 }
             }
         }

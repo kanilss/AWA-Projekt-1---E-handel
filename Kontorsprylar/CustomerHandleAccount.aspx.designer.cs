@@ -139,6 +139,15 @@ namespace Kontorsprylar {
         protected global::System.Web.UI.WebControls.Button ButtonUpdate;
         
         /// <summary>
+        /// ButtonUpdatePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonUpdatePassword;
+        
+        /// <summary>
         /// LiteralOrderHistory control.
         /// </summary>
         /// <remarks>
@@ -146,5 +155,41 @@ namespace Kontorsprylar {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal LiteralOrderHistory;
+        
+        /// <summary>
+        /// TextBoxOldPswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxOldPswd;
+        
+        /// <summary>
+        /// TextBoxNewPswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxNewPswd;
+        
+        /// <summary>
+        /// TextBoxConfirmNewPswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxConfirmNewPswd;
+        
+        /// <summary>
+        /// LBUpdatePsw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LBUpdatePsw;
     }
 }
