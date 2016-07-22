@@ -128,7 +128,7 @@
             <asp:Literal ID="LiteralAdmin" runat="server"></asp:Literal>
         </footer>
     </form>
-    <form role="form" runat="server">
+    <%--<form role="form" runat="server">--%>
 
 
         <!-- Modal För varukorg-->

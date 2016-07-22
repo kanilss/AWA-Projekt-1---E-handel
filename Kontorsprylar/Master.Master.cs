@@ -10,9 +10,18 @@ namespace Kontorsprylar
 {
     public partial class Master : System.Web.UI.MasterPage
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             List<Product> cart = (List<Product>)Session["Cart"];
+
+            string action = Request["action"];
+            string product = Request["product"];
+
+            if (action != null && action == "delete" && product != null)
+            {
+                DeleteProductInCart(Convert.ToInt32(product));
+            }
 
             if (IsPostBack)
             {
@@ -75,7 +84,7 @@ namespace Kontorsprylar
 
 
         private void LoadCart()
-        //EJ FÄRDIGT (Laddar produkter i modalen för varukorgen)
+        //Laddar produkter i modalen för varukorgen
         {
             List<Product> cart = (List<Product>)Session["Cart"];
             string html = "";
@@ -103,12 +112,15 @@ namespace Kontorsprylar
                     html += $"<h4 class=\"group inner list-group-item-heading\">";
                     html += $"{product.Name}</h4>";
                     html += $"<p class=\"group inner list-group-item-text\">";
-                    html += $"{product.Description}</p>";
+                    html += $"<small>{product.Description}</small></p>";
                     html += $"<div class=\"row\">";
                     html += $"<div class=\"col-xs-12 col-md-6\">";
                     html += $"<p class=\"lead\">";
                     html += $"{product.Price} kr</p>";
                     html += $"</div>";
+                    html += $"<div class=\"col-xs-12 col-md-6\">";
+                    html += $"<a class=\"btn btn-success\" href=\"products.aspx?action=delete&product={product.PID}\">Ta bort ur varukorgen</a>";
+                    html += "</div>";
                     html += "</div>";
                     html += "</div>";
                     html += "</div>";
@@ -118,6 +130,21 @@ namespace Kontorsprylar
             }
 
             LiteralCartContent.Text = html;
+        }
+        private void DeleteProductInCart(int product)
+        {
+            List<Product> cart = (List<Product>)Session["Cart"];
+            List<Product> resultCart = null;
+
+            if (cart != null)
+            {
+                resultCart = cart.Where(x => x.PID != product).ToList();
+           
+            }
+            Session["cart"] = resultCart;
+            LoadCart();
+
+
         }
     }
 }
