@@ -12,7 +12,8 @@ namespace Kontorsprylar
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            List<Product> cart = (List<Product>)Session["Cart"];
+
             if (IsPostBack)
             {
                 RFVLoginEmail.Validate();
@@ -35,9 +36,14 @@ namespace Kontorsprylar
             {
                 LiteralLogIn.Text = $"<li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> {Session["userName"]}</a></li>";
                 //Varukorgen visas bara om kunden är inloggad
-                LiteralCart.Text = "<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg</a></li>";
-
-                //TODO: Om inloggad. Visa upp länk till typ "hantera konto"
+                if (cart == null)
+                {
+                    LiteralCart.Text = $"<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg ()</a></li>";
+                }
+                else
+                {
+                    LiteralCart.Text = $"<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg ({cart.Count})</a></li>";
+                }
             }
 
             //Kolla om administratör är inloggad    
@@ -69,10 +75,9 @@ namespace Kontorsprylar
 
 
         private void LoadCart()
-
-            //EJ FÄRDIGT (Laddar produkter i modalen för varukorgen)
+        //EJ FÄRDIGT (Laddar produkter i modalen för varukorgen)
         {
-            List<Product> cart = (List<Product>) Session["Cart"];
+            List<Product> cart = (List<Product>)Session["Cart"];
             string html = "";
             if (cart == null)
             {

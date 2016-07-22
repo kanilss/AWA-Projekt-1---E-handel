@@ -14,44 +14,44 @@ namespace Kontorsprylar
 
         protected void Page_Load(object sender, EventArgs e)
         {
-         
-                string action = Request["action"];
-                string product = Request["product"];
 
-                if (action != null && action == "add" && product != null)
+            string action = Request["action"];
+            string product = Request["product"];
+
+            if (action != null && action == "add" && product != null)
+            {
+                try
                 {
-                    try
-                    {
                     List<Product> cart = (List<Product>)Session["Cart"];
                     if (cart == null)
                     {
                         cart = new List<Product>();
                         Session["cart"] = cart;
-                        foreach (var p in products)
+                    }
+                    foreach (var p in products)
+                    {
+                        if (p.PID == Convert.ToInt32(product))
                         {
-                            if (p.PID == Convert.ToInt32(product))
-                            {
-                                cart.Add(p);
-                            }
+                            cart.Add(p);
                         }
                     }
+                }
 
+                catch (Exception)
+                {
+                    throw;
                 }
-                    catch (Exception)
-                    {
-                        throw;
-                    }
-                }
-            
+            }
+
             LoadProducts();
         }
 
         private void LoadProducts()
         {
             string html = "";
+
             foreach (var product in products)
             {
-                html += "<div id=\"products\" class=\"row list-group\">";
                 html += "<div class=\"item col-xs-4 col-lg-4\">";
                 html += $"<div class=\"thumbnail\">";
                 html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
@@ -67,7 +67,6 @@ namespace Kontorsprylar
                 html += $"</div>";
                 html += $"<div class=\"col-xs-12 col-md-6\">";
                 html += $"<a class=\"btn btn-success\" href=\"products.aspx?action=add&product={product.PID}\">Lägg till i varukorg</a>";
-                html += "</div>";
                 html += "</div>";
                 html += "</div>";
                 html += "</div>";
