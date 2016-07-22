@@ -151,29 +151,22 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="email"><span class="glyphicon glyphicon-user"></span>Användarnamn</label>
+                            <label for="email"><span class="glyphicon glyphicon-user"></span>Email</label>
                             <asp:TextBox ID="TextBoxLoginEmail" CssClass="form-control" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" id="usrname" placeholder="Fyll i email">--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVLoginEmail" runat="server" ErrorMessage="Email krävs" ControlToValidate="TextBoxLoginEmail" EnableClientScript="False"></asp:RequiredFieldValidator>
 
                         <div class="form-group">
                             <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Lösenord</label>
                             <asp:TextBox ID="TextBoxLoginPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
-                            <%--<input type="text" class="form-control" id="psw" placeholder="Fyll i lösenord">--%>
                         </div>
                         <asp:RequiredFieldValidator ID="RFVLoginPassword" runat="server" ErrorMessage="Lösenord krävs" EnableClientScript="False" ControlToValidate="TextBoxLoginPassword"></asp:RequiredFieldValidator>
 
-                        <%--<div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="" checked>Kom ihåg mig</label>
-                        </div>--%>
                         <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Login</button>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
                         <p>Inte medlem? <a href="RegisterCustomer.aspx">Registrera dig</a></p>
-                        <%--<p>Glömt <a href="#">Lösenord?</a></p>--%>
                     </div>
                 </div>
             </div>
@@ -189,6 +182,7 @@
             <asp:Literal ID="LiteralAdmin" runat="server"></asp:Literal>
         </footer>
     </form>
+    <form role="form" runat="server">
 
 
         <!-- Modal För varukorg-->
