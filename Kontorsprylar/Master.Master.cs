@@ -51,6 +51,7 @@ namespace Kontorsprylar
                 }
                 else
                 {
+                    cart = (List<Product>)Session["Cart"];
                     LiteralCart.Text = $"<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg ({cart.Count})</a></li>";
                 }
             }
@@ -107,7 +108,7 @@ namespace Kontorsprylar
                     html += "<div id=\"products\" class=\"row list-group\">";
                     html += "<div class=\"item col-xs-4 col-lg-4\">";
                     html += $"<div class=\"thumbnail\">";
-                    html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
+                    html += $"<img class=\"group list-group-image\" src=\"{product.PictureLink}\" alt=\"\"/>";
                     html += $"<div class=\"caption\">";
                     html += $"<h4 class=\"group inner list-group-item-heading\">";
                     html += $"{product.Name}</h4>";

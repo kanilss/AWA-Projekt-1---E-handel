@@ -54,7 +54,7 @@ namespace Kontorsprylar
             {
                 html += "<div class=\"item col-xs-4 col-lg-4\">";
                 html += $"<div class=\"thumbnail\">";
-                html += $"<img class=\"group list-group-image\" src=\"http://placehold.it/400x250/000/fff\" alt=\"\"/>";
+                html += $"<img class=\"group list-group-image\" src=\"{product.PictureLink}\" alt=\"\"/>";
                 html += $"<div class=\"caption\">";
                 html += $"<h4 class=\"group inner list-group-item-heading\">";
                 html += $"{product.Name}</h4>";

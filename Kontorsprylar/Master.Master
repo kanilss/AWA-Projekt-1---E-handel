@@ -37,7 +37,6 @@
         /* Modal */
         .modal-header, h4, .close {
             background-color: #5cb85c;
-            color: white !important;
             text-align: center;
             font-size: 30px;
         }
@@ -64,11 +63,7 @@
 
 
     <!--Meny-->
-    <style>
-        a:link {
-            color: white;
-        }
-    </style>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
