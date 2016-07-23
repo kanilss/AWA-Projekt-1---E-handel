@@ -17,8 +17,10 @@
         /* Remove the navbar's default rounded borders and increase the bottom margin */
         .navbar {
             margin-bottom: 50px;
-            border-radius: 0;
-            background-color: #5cb85c;
+            border-radius: 20px;
+            background-color: #FFFFFF;
+            border-color: #5cb85c;
+            
         }
 
         /* Remove the jumbotron's default bottom margin */
@@ -28,7 +30,7 @@
 
         /* Add a gray background color and some padding to the footer */
         footer {
-            background-color: #5cb85c;
+            background-color: #FFFFFF;
             padding: 25px;
         }
 
@@ -39,9 +41,14 @@
             text-align: center;
             font-size: 30px;
         }
-
+        /*Footer */
         .modal-footer {
             background-color: #5cb85c;
+        }
+
+        p {
+            border-style: solid;
+            border-color: #5cb85c;
         }
     </style>
 </head>
@@ -74,8 +81,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="myNavbar">
-                <a class="navbar-brand" href="#">
-                    <img src="C:\Users\Administrator\Downloads\logo" alt="Logo" style="width: 80px; height: 30px;"></a>
+                <a class="navbar-brand" href="#"></a>
                 <ul class="nav navbar-nav">
 
                     <li class="active"><a href="Index.aspx">Home</a></li>
@@ -132,10 +138,18 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
+<br />
+     <%--  Linje--%>
+    <p class="solid"></p>
 
         <footer class="container-fluid text-center">
             <asp:Literal ID="LiteralAdmin" runat="server"></asp:Literal>
+            <div class="klarna-widget klarna-badge-tooltip"
+                data-eid="7028"
+                data-locale="sv_se"
+                data-badge-name="long-blue"
+                data-badge-width="385">
+            </div>
         </footer>
     </form>
     <%--<form role="form" runat="server">--%>
@@ -158,5 +172,8 @@
             </div>
         </div>
     </div>
+
+
+    <script async src="https://cdn.klarna.com/1.0/code/client/all.js"></script>
 </body>
 </html>
