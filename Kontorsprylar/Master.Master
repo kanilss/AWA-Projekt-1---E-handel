@@ -18,6 +18,7 @@
         .navbar {
             margin-bottom: 50px;
             border-radius: 0;
+            background-color: #5cb85c;
         }
 
         /* Remove the jumbotron's default bottom margin */
@@ -27,7 +28,7 @@
 
         /* Add a gray background color and some padding to the footer */
         footer {
-            background-color: #f2f2f2;
+            background-color: #5cb85c;
             padding: 25px;
         }
 
@@ -40,22 +41,27 @@
         }
 
         .modal-footer {
-            background-color: #f9f9f9;
+            background-color: #5cb85c;
         }
-
-  
     </style>
 </head>
 <body>
     <!-- Headern-->
-    <div class="jumbotron">
+
+    <div style="background: transparent !important">
         <div class="container text-center">
-            <h1>Online Store</h1>
-            <p>Mission, Vission & Values</p>
+
+            <img src="http://intu.co.uk/uploads/media/logo_retailer/0001/07/thumb_6909_logo_retailer_1x.png" alt="Logo" style="width: 300px; height: 128px;">
         </div>
     </div>
 
+
     <!--Meny-->
+    <style>
+        a:link {
+            color: white;
+        }
+    </style>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -64,13 +70,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Logo</a>
+
             </div>
+
             <div class="collapse navbar-collapse" id="myNavbar">
+                <a class="navbar-brand" href="#">
+                    <img src="C:\Users\Administrator\Downloads\logo" alt="Logo" style="width: 80px; height: 30px;"></a>
                 <ul class="nav navbar-nav">
+
                     <li class="active"><a href="Index.aspx">Home</a></li>
                     <li><a href="Products.aspx">Produkter</a></li>
-                    <li><a href="ContactUs.aspx">Kontakta oss</a></li>
+                    <li><a href="ContactUs.aspx">Kontakta oss</></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <%-- Ändras beroende på om man är inloggad eller ej --%>
@@ -131,22 +141,22 @@
     <%--<form role="form" runat="server">--%>
 
 
-        <!-- Modal För varukorg-->
-        <!-- Modal -->
-        <div class="modal fade" id="modalCart" role="dialog">
-            <div class="modal-dialog">
+    <!-- Modal För varukorg-->
+    <!-- Modal -->
+    <div class="modal fade" id="modalCart" role="dialog">
+        <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a>
-                        <asp:Literal ID="LiteralCartContent" runat="server"></asp:Literal>
-                        
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span>Varukorg</a>
+                    <asp:Literal ID="LiteralCartContent" runat="server"></asp:Literal>
 
-                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
 </body>
 </html>

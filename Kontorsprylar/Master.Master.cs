@@ -119,7 +119,7 @@ namespace Kontorsprylar
                     html += $"{product.Price} kr</p>";
                     html += $"</div>";
                     html += $"<div class=\"col-xs-12 col-md-6\">";
-                    html += $"<a class=\"btn btn-success\" href=\"products.aspx?action=delete&product={product.PID}\">Ta bort ur varukorgen</a>";
+                    html += $"<center><a class=\"btn btn-success\" href=\"products.aspx?action=delete&product={product.PID}\">Ta bort ur varukorgen</a></center>";
                     html += "</div>";
                     html += "</div>";
                     html += "</div>";
