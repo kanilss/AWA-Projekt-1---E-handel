@@ -198,9 +198,7 @@
                                                 <td></td>
                                                 <td></td>
                                                 <td>
-                                                    <asp:LinkButton ID="LinkButtonCheckout" CssClass="btn btn-success" runat="server">
-                                                            Checkout <span class="glyphicon glyphicon-play"></span>
-                                                    </asp:LinkButton>
+                                                    <a href="CheckOut.aspx" class="btn btn-success">Checkout <span class="glyphicon glyphicon-play"></span></a>
                                                 </td>
                                             </tr>
                                         </tbody>
