@@ -218,7 +218,6 @@ namespace SQLHandler
             }
 
         }
-
         static public List<Customer> LoadCustomers()
         {
             List<Customer> customers = new List<Customer>();
