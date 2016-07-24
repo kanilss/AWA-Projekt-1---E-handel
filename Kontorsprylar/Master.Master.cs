@@ -80,6 +80,7 @@ namespace Kontorsprylar
                 Session["userName"] = signedInCustomer.Name;
                 Session["userEmail"] = email;
                 Session["password"] = password;
+                Session["userID"] = signedInCustomer.ID;
             }
         }
 

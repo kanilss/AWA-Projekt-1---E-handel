@@ -67,44 +67,6 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-
-        public static Admin GetAdmin(string email, string password)
-        {
-            Admin tmpAdmin = null;
-
-            SqlConnection myConnection = new SqlConnection(conStr);
-            SqlCommand myCommand = new SqlCommand();
-
-            string strCmd = $"select * from Admins where Email='{email}' and Password='{password}'";
-
-            myCommand.CommandText = strCmd;
-            myCommand.Connection = myConnection;
-
-            try
-            {
-                myConnection.Open();
-
-                SqlDataReader myReader = myCommand.ExecuteReader();
-
-                while (myReader.Read())
-                {
-                    string name = myReader["Name"].ToString();
-                    int id = Convert.ToInt32(myReader["AID"]);
-                    tmpAdmin = new Admin(name, email, password, id);
-                }
-            }
-            catch (Exception ex)
-            {
-                // Response.Write($"<script>alert('{ex.Message}');</script>");
-            }
-            finally
-            {
-                myConnection.Close();
-            }
-
-            return tmpAdmin;
-        }
-
         static public void AddNewAdmin(string name, string email, string password)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
@@ -187,6 +149,75 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
+        static public int AddNewOrder(int cid, decimal totalCost)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spCreateOrder";
+
+            SqlParameter paramCID = new SqlParameter("@cid", SqlDbType.VarChar, 255);
+            paramCID.Value = cid;
+            myCommand.Parameters.Add(paramCID);
+
+            SqlParameter paramTotalCost = new SqlParameter("@totalCost", SqlDbType.VarChar, 255);
+            paramTotalCost.Value = totalCost;
+            myCommand.Parameters.Add(paramTotalCost);
+
+            SqlParameter paramID = new SqlParameter("@new_id", SqlDbType.Int);
+            paramID.Direction = ParameterDirection.Output;
+            myCommand.Parameters.Add(paramID);
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+            return Convert.ToInt32(paramID.Value);
+        }
+        static public void AddProductToOrder(int oid, int pid)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spCreateOrderProduct";
+
+            SqlParameter paramOID = new SqlParameter("@oid", SqlDbType.VarChar, 255);
+            paramOID.Value = oid;
+            myCommand.Parameters.Add(paramOID);
+
+            SqlParameter paramPID = new SqlParameter("@pid", SqlDbType.VarChar, 255);
+            paramPID.Value = pid;
+            myCommand.Parameters.Add(paramPID);
+
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+        }
 
         static public List<Customer> LoadCustomers()
         {
@@ -209,7 +240,7 @@ namespace SQLHandler
 
                 while (myReader.Read())
                 {
-                    customers.Add(new Customer(myReader["Name"].ToString(), myReader["Email"].ToString(), myReader["Password"].ToString(), Convert.ToInt32(myReader["CID"]), myReader["Address"].ToString(), myReader["Phone"].ToString(), myReader["OrgNr"].ToString())); 
+                    customers.Add(new Customer(myReader["Name"].ToString(), myReader["Email"].ToString(), myReader["Password"].ToString(), Convert.ToInt32(myReader["CID"]), myReader["Address"].ToString(), myReader["Phone"].ToString(), myReader["OrgNr"].ToString()));
                 }
             }
             catch (Exception ex)
@@ -223,7 +254,6 @@ namespace SQLHandler
 
             return customers;
         }
-
         static public List<Product> LoadProducts()
         {
             List<Product> products = new List<Product>();
@@ -259,7 +289,6 @@ namespace SQLHandler
 
             return products;
         }
-
         static public List<Admin> LoadAdmins()
         {
             List<Admin> admins = new List<Admin>();
@@ -295,15 +324,14 @@ namespace SQLHandler
 
             return admins;
         }
-
-        static public Customer GetCustomer(string email, string password)
+        public static Admin GetAdmin(string email, string password)
         {
-            Customer tmpCustomer = null;
+            Admin tmpAdmin = null;
 
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
 
-            string strCmd = $"select * from Customers where Email='{email}' and Password='{password}'";
+            string strCmd = $"select * from Admins where Email='{email}' and Password='{password}'";
 
             myCommand.CommandText = strCmd;
             myCommand.Connection = myConnection;
@@ -317,11 +345,8 @@ namespace SQLHandler
                 while (myReader.Read())
                 {
                     string name = myReader["Name"].ToString();
-                    string address = myReader["Address"].ToString();
-                    string phone = myReader["Phone"].ToString();
-                    string orgNr = myReader["OrgNr"].ToString();
-                    int id = Convert.ToInt32(myReader["CID"]);
-                    tmpCustomer = new Customer(name, email, password, id, address, phone, orgNr);
+                    int id = Convert.ToInt32(myReader["AID"]);
+                    tmpAdmin = new Admin(name, email, password, id);
                 }
             }
             catch (Exception ex)
@@ -333,7 +358,7 @@ namespace SQLHandler
                 myConnection.Close();
             }
 
-            return tmpCustomer;
+            return tmpAdmin;
         }
         static public Customer GetCustomer(int id)
         {
@@ -361,6 +386,45 @@ namespace SQLHandler
                     string address = myReader["Address"].ToString();
                     string phone = myReader["Phone"].ToString();
                     string orgNr = myReader["OrgNr"].ToString();
+                    tmpCustomer = new Customer(name, email, password, id, address, phone, orgNr);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Response.Write($"<script>alert('{ex.Message}');</script>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            return tmpCustomer;
+        }
+        static public Customer GetCustomer(string email, string password)
+        {
+            Customer tmpCustomer = null;
+
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            string strCmd = $"select * from Customers where Email='{email}' and Password='{password}'";
+
+            myCommand.CommandText = strCmd;
+            myCommand.Connection = myConnection;
+
+            try
+            {
+                myConnection.Open();
+
+                SqlDataReader myReader = myCommand.ExecuteReader();
+
+                while (myReader.Read())
+                {
+                    string name = myReader["Name"].ToString();
+                    string address = myReader["Address"].ToString();
+                    string phone = myReader["Phone"].ToString();
+                    string orgNr = myReader["OrgNr"].ToString();
+                    int id = Convert.ToInt32(myReader["CID"]);
                     tmpCustomer = new Customer(name, email, password, id, address, phone, orgNr);
                 }
             }
@@ -413,31 +477,6 @@ namespace SQLHandler
             }
 
             return tmpProduct;
-        }
-        static public void DeleteCustomer(int id)
-        {
-            SqlConnection myConnection = new SqlConnection(conStr);
-            SqlCommand myCommand = new SqlCommand();
-
-
-            string strCmd = $"delete from Customers where CID={id}";
-
-            myCommand.CommandText = strCmd;
-            myCommand.Connection = myConnection;
-            try
-            {
-                myConnection.Open();
-                myCommand.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // TODO: Hur kan vi skicka för exception-meddelande?
-
-            }
-            finally
-            {
-                myConnection.Close();
-            }
         }
         static public void UpdateCustomer(string name, string email, string address, string phone, string orgnr, int id)
         {
@@ -533,13 +572,44 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-        static public void DeleteProduct(int id)
+        static public void UpdateCustomer(string password, int id)
+        {
+            SqlConnection myConnection = new SqlConnection(conStr);
+            SqlCommand myCommand = new SqlCommand();
+
+            myCommand.Connection = myConnection;
+            myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.CommandText = "spUpdateCustomerPassword";
+
+            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar, 255);
+            paramPassword.Value = password;
+            myCommand.Parameters.Add(paramPassword);
+
+            SqlParameter paramID = new SqlParameter("@cid", SqlDbType.Int);
+            paramID.Value = id;
+            myCommand.Parameters.Add(paramID);
+            try
+            {
+                myConnection.Open();
+                myCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // TODO: Hur kan vi skicka för exception-meddelande?
+
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+        }
+        static public void DeleteCustomer(int id)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
 
 
-            string strCmd = $"delete from Products where PID={id}";
+            string strCmd = $"delete from Customers where CID={id}";
 
             myCommand.CommandText = strCmd;
             myCommand.Connection = myConnection;
@@ -558,22 +628,16 @@ namespace SQLHandler
                 myConnection.Close();
             }
         }
-        static public void UpdateCustomer(string password, int id)
+        static public void DeleteProduct(int id)
         {
             SqlConnection myConnection = new SqlConnection(conStr);
             SqlCommand myCommand = new SqlCommand();
 
+
+            string strCmd = $"delete from Products where PID={id}";
+
+            myCommand.CommandText = strCmd;
             myCommand.Connection = myConnection;
-            myCommand.CommandType = CommandType.StoredProcedure;
-            myCommand.CommandText = "spUpdateCustomerPassword";
-
-            SqlParameter paramPassword = new SqlParameter("@password", SqlDbType.VarChar, 255);
-            paramPassword.Value = password;
-            myCommand.Parameters.Add(paramPassword);
-
-            SqlParameter paramID = new SqlParameter("@cid", SqlDbType.Int);
-            paramID.Value = id;
-            myCommand.Parameters.Add(paramID);
             try
             {
                 myConnection.Open();
