@@ -9,16 +9,16 @@
         <br />
         <div class="container" style="width:auto">
             <div class="form-group">
-                <label for="email"><span class="glyphicon glyphicon-user"></span>Email</label>
+                <label for="email"><span class="glyphicon glyphicon-user"></span> Email</label>
                 <asp:TextBox ID="TextBoxLoginEmail" CssClass="form-control" style="text-align:center" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFVLoginEmail" runat="server" ErrorMessage="Email krävs" ControlToValidate="TextBoxLoginEmail" EnableClientScript="False"></asp:RequiredFieldValidator>
             </div>
             <div class="form-group">
-                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Lösenord</label>
+                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Lösenord</label>
                 <asp:TextBox ID="TextBoxLoginPassword" CssClass="form-control" style="text-align:center" TextMode="Password" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RFVLoginPassword" runat="server" ErrorMessage="Lösenord krävs" EnableClientScript="False" ControlToValidate="TextBoxLoginPassword"></asp:RequiredFieldValidator>
             </div>
-            <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Login</button>
+            <button type="submit" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
         </div>
     </div>
     <br/>

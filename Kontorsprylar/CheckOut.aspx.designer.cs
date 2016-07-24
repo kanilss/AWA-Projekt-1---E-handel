@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Kontorsprylar
-{
-
-
-    public partial class CheckOut
-    {
+namespace Kontorsprylar {
+    
+    
+    public partial class CheckOut {
     }
 }

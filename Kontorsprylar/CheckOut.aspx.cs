@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Kontorsprylar
 {
-    public partial class CheckOut : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+	public partial class CheckOut : System.Web.UI.Page
+	{
+		protected void Page_Load(object sender, EventArgs e)
+		{
 
-        }
-    }
+		}
+	}
 }
