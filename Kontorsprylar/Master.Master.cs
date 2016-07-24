@@ -144,8 +144,6 @@ namespace Kontorsprylar
             }
             Session["cart"] = resultCart;
             LoadCart();
-
-
         }
     }
 }
