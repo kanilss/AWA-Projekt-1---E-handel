@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Kontorsprylar.ContactUs" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BABAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAIAIAAAE=</HashCode>
+      <FileName>ContactUs.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.CustomerHandleAccount" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DCACAAACAABAACAAAACAABIYEEAgAAAJIAAEIAMAAAg=</HashCode>
+      <FileName>CustomerHandleAccount.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.HandelCustomers" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABAACBAAAAAAAAACAAIAQAEAgBAQIAAAAIAIAAAA=</HashCode>
+      <FileName>HandleCustomers.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.HandleProducts" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACABAAKBQIAQAAAAAAACIAAAAAgBCRIAIAAIAIAAAI=</HashCode>
+      <FileName>HandleProducts.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.Index" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Index.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.LoginAdmin" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABDAAAAAAAAAAAAAAAAAAAAAQAAIAAEA=</HashCode>
+      <FileName>LoginAdmin.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.Master" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAAAgAAABBQAAAAAAEIBAAAAAAAAAAAQAAIAAEg=</HashCode>
+      <FileName>Master.Master.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.Products" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
+      <FileName>Products.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Kontorsprylar.RegisterCustomer" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAABAAAgAAACgAAoQAEAgAAAAAAAAIAMAAAg=</HashCode>
+      <FileName>RegisterCustomer.aspx.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
