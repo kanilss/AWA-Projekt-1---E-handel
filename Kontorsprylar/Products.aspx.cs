@@ -14,33 +14,41 @@ namespace Kontorsprylar
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string action = Request["action"];
             string product = Request["product"];
 
             if (action != null && action == "add" && product != null)
             {
-                try
+
+                if (Session["userName"] != null)
                 {
-                    List<Product> cart = (List<Product>)Session["Cart"];
-                    if (cart == null)
+                    try
                     {
-                        cart = new List<Product>();
-                        Session["cart"] = cart;
-                    }
-                    foreach (var p in products)
-                    {
-                        if (p.PID == Convert.ToInt32(product))
+                        List<Product> cart = (List<Product>)Session["Cart"];
+                        if (cart == null)
                         {
-                            cart.Add(p);
+                            cart = new List<Product>();
+                            Session["cart"] = cart;
+                        }
+                        foreach (var p in products)
+                        {
+                            if (p.PID == Convert.ToInt32(product))
+                            {
+                                cart.Add(p);
+                            }
                         }
                     }
+
+                    catch (Exception)
+                    {
+                        throw;
+                    }
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "warningNotSignedIn();", true);
                 }
 
-                catch (Exception)
-                {
-                    throw;
-                }
             }
 
             LoadProducts();
@@ -54,7 +62,7 @@ namespace Kontorsprylar
             {
                 html += "<div class=\"item col-xs-4 col-lg-4\">";
                 html += $"<div class=\"thumbnail\">";
-                html += $"<img class=\"group list-group-image\" src=\"{product.PictureLink}\" alt=\"\"/>";
+                html += $"<img class=\"group list-group-image\" style=\"width:400px; height:250px;\" src=\"{product.PictureLink}\" alt=\"\"/>";
                 html += $"<div class=\"caption\">";
                 html += $"<h4 class=\"group inner list-group-item-heading\">";
                 html += $"{product.Name}</h4>";

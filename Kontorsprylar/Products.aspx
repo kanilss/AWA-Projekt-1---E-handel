@@ -66,6 +66,9 @@
             $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
             $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
         });
+        function warningNotSignedIn() {
+            alert("Du måste logga in för att kunna handla");;
+        }
     </script>
     <div class="container">
         <div class="well well-sm">
