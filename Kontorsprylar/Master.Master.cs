@@ -47,7 +47,7 @@ namespace Kontorsprylar
                 //Varukorgen visas bara om kunden är inloggad
                 if (cart == null)
                 {
-                    LiteralCart.Text = $"<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg ()</a></li>";
+                    LiteralCart.Text = $"<li><a data-toggle=\"modal\" href=\"#modalCart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Varukorg (0)</a></li>";
                 }
                 else
                 {
@@ -89,6 +89,8 @@ namespace Kontorsprylar
         {
             List<Product> cart = (List<Product>)Session["Cart"];
             string html = "";
+            decimal sum = 0;
+
             if (cart == null)
             {
                 html += "<div id=\"products\" class=\"row list-group\">";
@@ -105,32 +107,34 @@ namespace Kontorsprylar
 
                 foreach (var product in cart)
                 {
-                    html += "<div id=\"products\" class=\"row list-group\">";
-                    html += "<div class=\"item col-xs-4 col-lg-4\">";
-                    html += $"<div class=\"thumbnail\">";
-                    html += $"<img class=\"group list-group-image\" src=\"{product.PictureLink}\" alt=\"\"/>";
-                    html += $"<div class=\"caption\">";
-                    html += $"<h4 class=\"group inner list-group-item-heading\">";
-                    html += $"{product.Name}</h4>";
-                    html += $"<p class=\"group inner list-group-item-text\">";
-                    html += $"<small>{product.Description}</small></p>";
-                    html += $"<div class=\"row\">";
-                    html += $"<div class=\"col-xs-12 col-md-6\">";
-                    html += $"<p class=\"lead\">";
-                    html += $"{product.Price} kr</p>";
-                    html += $"</div>";
-                    html += $"<div class=\"col-xs-12 col-md-6\">";
-                    html += $"<center><a class=\"btn btn-success\" href=\"products.aspx?action=delete&product={product.PID}\">Ta bort ur varukorgen</a></center>";
+                    html += "<tr>";
+                    html += "<td class=\"col-sm-8 col-md-6\">";
+                    html += "<div class=\"media\">";
+                    html += "<a class=\"thumbnail pull-left\" href=\"#\">";
+                    html += $"<img class=\"media-object\" src=\"{product.PictureLink}\" style=\"width: 72px; height: 72px;\">";
+                    html += "</a>";
+                    html += "<div class=\"media-body\">";
+                    html += $"<h4 class=\"media-heading\"><a href=\"#\">{product.Name}</a></h4>";
                     html += "</div>";
                     html += "</div>";
-                    html += "</div>";
-                    html += "</div>";
-                    html += "</div>";
-                    html += "</div>";
+                    html += "</td>";
+                    html += "<td class=\"col-sm-1 col-md-1\" style=\"text-align: center\">";
+                    html += "<input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" value=\"1\">";
+                    html += "</td>";
+                    html += $"<td class=\"col-sm-1 col-md-1\">{product.Price} kr</td>";
+                    html += $"<td class=\"col-sm-1 col-md-1\">{product.Price} kr</td>";
+                    html += "<td class=\"col-sm-1 col-md-1\">";
+                    html += $"<a class=\"btn btn-danger\" href=\"products.aspx?action=delete&product={product.PID}\"><span class=\"glyphicon glyphicon-remove\"></span>Remove</a>";
+                    html += "</td>";
+                    html += "</tr>";
+
+                    //Räknar ihop summan för varukorgen
+                    sum += product.Price;
                 }
             }
 
-            LiteralCartContent.Text = html;
+            Literal1.Text = html;
+            LiteralSum.Text = sum.ToString() + " kr";
         }
         private void DeleteProductInCart(int product)
         {
